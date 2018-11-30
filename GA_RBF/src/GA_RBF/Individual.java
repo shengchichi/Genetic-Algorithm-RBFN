@@ -1,4 +1,4 @@
-package GA_RBF;
+ï»¿package GA_RBF;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,7 +24,7 @@ public class Individual {
 		Random r = new Random();
 		for(int i=1;i<=J;i++)
 		{
-			while(true)//½T«O°Ñ¼Æ½d³ò
+			while(true)//ç¢ºä¿åƒæ•¸ç¯„åœ
 			{
 				noise = r.nextDouble()*2-1;//-1~1
 				w[i] += noise;
@@ -57,7 +57,7 @@ public class Individual {
 		}
 		for(int i=1;i<J+1;i++)
 		{
-			while(true)//½T«O°Ñ¼Æ½d³ò
+			while(true)//ç¢ºä¿åƒæ•¸ç¯„åœ
 			{
 				noise = r.nextDouble()*20-10;//-10~10
 				fi[i] += noise;
@@ -74,7 +74,7 @@ public class Individual {
 	}
 	public void setDna(ArrayList<Double> dna)
 	{
-		this.dna = dna;
+		this.dna = new ArrayList<Double>(dna);;
 		dna_decode();
 	}
 	private void dna_decode()

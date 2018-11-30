@@ -1,4 +1,4 @@
-package GA_RBF;
+ï»¿package GA_RBF;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -14,10 +14,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ga_rbf extends JFrame implements KeyListener{
-	int size =500;//¥²¶·¬°°¸¼Æ
-	double mutate_prob=0.4;//¬ğÅÜ²v
-	double cross_prob=0.6;//¥æ°t²v
-	int loop=100000;//­¡¥N¦¸¼Æ
+	int size =500;//å¿…é ˆç‚ºå¶æ•¸
+	double mutate_prob=0.4;//çªè®Šç‡
+	double cross_prob=0.6;//äº¤é…ç‡
+	int loop=100000;//è¿­ä»£æ¬¡æ•¸
 	double ratio=0.1;
 	double error=0;
 	double err_min = 1000;
@@ -27,7 +27,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 	int dim =4;
 	ArrayList<Double> best = new ArrayList<Double>();
 	double theta = 0.4;
-	ArrayList<Double> y = new ArrayList<Double>();//´Á±æ¿é¥X
+	ArrayList<Double> y = new ArrayList<Double>();//æœŸæœ›è¼¸å‡º
 	ArrayList<Integer> dna_in_pool = new ArrayList<Integer>();
 	ArrayList<ArrayList<Double>> x = new ArrayList<ArrayList<Double>>();
 	ArrayList<Double> x_row = new ArrayList<Double>();
@@ -35,11 +35,11 @@ public class ga_rbf extends JFrame implements KeyListener{
 	String s[];//all files
 	ArrayList<String> temp = new ArrayList<String>();
 	ArrayList<String> temp2 = new ArrayList<String>();
-	JButton enter = new JButton("¿é¤J");
-	JTextArea mp = new JTextArea("¬ğÅÜ²v");
-	JTextArea cp = new JTextArea("¥æ°t²v");
-	JTextArea lp = new JTextArea("­¡¥N¦¸¼Æ");
-	JTextArea amount = new JTextArea("±Ú¸s¤j¤p");
+	JButton enter = new JButton("submit");
+	JTextArea mp = new JTextArea("mutation");
+	JTextArea cp = new JTextArea("crossover");
+	JTextArea lp = new JTextArea("iteration");
+	JTextArea amount = new JTextArea("population");
 	Individual ind[];
 	Individual ind_child[];
 	ga_rbf()
@@ -68,7 +68,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 			e.printStackTrace();
 		}
 		scan();
-		func();//¥¿³Wµe y
+		func();//æ­£è¦ç•« y
 		create();
 		//test();
 		double err_last=0;
@@ -78,7 +78,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 		{
 			if(count==10)
 				break;
-			calculate();//­pºâ¾AÀ³¨ç¼Æ
+			calculate();//è¨ˆç®—é©æ‡‰å‡½æ•¸
 			
 			if(err_min*80<=2&&err_min*80>=1)
 				break;
@@ -86,9 +86,9 @@ public class ga_rbf extends JFrame implements KeyListener{
 				count++;
 			else
 				count=0;
-			pool();//½Æ»s
-			crossover();//¥æ°t
-			mutate();//ÅÜ²§
+			pool();//è¤‡è£½
+			crossover();//äº¤é…
+			mutate();//è®Šç•°
 			replace();//child replace parent
 			err_last=err_min;
 		}
@@ -106,7 +106,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 	}
 	public void test()
 	{
-		ArrayList<Double> a = new ArrayList<Double>();//´Á±æ¿é¥X
+		ArrayList<Double> a = new ArrayList<Double>();//æœŸæœ›è¼¸å‡º
 		a.add(0.163568);
 		a.add(0.851471);
 		a.add(1.594151);
@@ -132,7 +132,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 		double delta = 0;
 		double temp = 0;//f
 		double fitness = 0;
-		double out = 0;//rbf¿é¥X=>F
+		double out = 0;//rbfè¼¸å‡º=>F
 		double min_error=1000;
 		error =0;
 		for(int list=0;list<x.size();list++)
@@ -183,7 +183,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 			double delta = 0;
 			double temp = 0;//f
 			double fitness = 0;
-			double out = 0;//rbf¿é¥X=>F
+			double out = 0;//rbfè¼¸å‡º=>F
 			error =0;
 			for(int list=0;list<x.size();list++)
 			{
@@ -232,7 +232,7 @@ public class ga_rbf extends JFrame implements KeyListener{
 			Random r = new Random();
 			int a = r.nextInt(size);
 			int b = r.nextInt(size);
-			if(ind[a].getFitness()<ind[b].getFitness())//«O¯d¦nªº
+			if(ind[a].getFitness()<ind[b].getFitness())//ä¿ç•™å¥½çš„
 				dna_in_pool.add(a);
 			else
 				dna_in_pool.add(b);	
@@ -309,9 +309,9 @@ public class ga_rbf extends JFrame implements KeyListener{
 	public void scan()
 	{
 		File f = new File("data3d");
-		if(f.isDirectory())//­YÅª¨ú¨ìªº¬O¸ê®Æ§¨
+		if(f.isDirectory())//è‹¥è®€å–åˆ°çš„æ˜¯è³‡æ–™å¤¾
 		{
-			s=f.list();//ÀÉ®×list
+			s=f.list();//æª”æ¡ˆlist
 			//System.out.println(s.length+s[0]);
 		}
 		data = new int[s.length];

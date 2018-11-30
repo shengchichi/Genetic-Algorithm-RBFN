@@ -1,4 +1,4 @@
-package GA_RBF;
+ï»¿package GA_RBF;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,24 +26,24 @@ public class run extends JFrame{
 	double y_d;
 	double y_l;
 	double y_r;
-	double d1=22;//ª½½u¶ZÂ÷
+	double d1=22;//ç›´ç·šè·é›¢
 	double d2=8.4852814;//left distance
 	double d3=8.4852814;//right distance
 	double[][] m;
 	double[] w;
 	double[] fi;
-	double degree = 0;//±ÛÂà¨¤«×
-	double f=90;//»P¤ô¥­¨¤«×
+	double degree = 0;//æ—‹è½‰è§’åº¦
+	double f=90;//èˆ‡æ°´å¹³è§’åº¦
 	double delta = 0;
 	double temp = 0;
 	double fitness = 0;
 	double out =0;
 	double theta =0.4;
 	
-	JLabel label = new JLabel("±ÛÂà¨¤«×(´ú¸Õ¥Î)");
+	JLabel label = new JLabel("æ—‹è½‰è§’åº¦(æ¸¬è©¦ç”¨)");
 	JLabel err = new JLabel();
 	
-	JButton start = new JButton("¶}©l");
+	JButton start = new JButton("é–‹å§‹");
 	Line2D line_bot = new Line2D.Double(-400, 0, 400, 0);
     Line2D line_top = new Line2D.Double(-400, -500, 400, -500);
     Line2D line_end = new Line2D.Double(180, -370, 300, -370);
@@ -85,7 +85,7 @@ public class run extends JFrame{
 	}
 public void update(Graphics g) { 
     	
-        this.paint(g);  // ³æ¯Â©I¥spaint() 
+        this.paint(g);  // å–®ç´”å‘¼å«paint() 
     } 
     public void paint(Graphics g) { 
         super.paint(g);
@@ -104,7 +104,7 @@ public void update(Graphics g) {
         g2.draw(new Ellipse2D.Double(10*(x-3), -10*(y+3), 60,60 ));
         g2.setColor(Color.BLUE);
         g.fillOval(237, -373, 6, 6);//END
-        // Ã¸¹Ï°Ê§@ 
+        // ç¹ªåœ–å‹•ä½œ 
     } 
 	public void move()
 	{
@@ -474,7 +474,7 @@ public void update(Graphics g) {
 			degree =-40;
 		else
 			degree = out*80-40;
-		System.out.println("«e: "+x_direction[1]+" ¥k: "+x_direction[2]+" ¥ª: "+x_direction[3]+" deg: "+degree);
+		System.out.println("å‰: "+x_direction[1]+" å³: "+x_direction[2]+" å·¦: "+x_direction[3]+" deg: "+degree);
 	}
 	public void decode(ArrayList<Double> dna)
 	{
